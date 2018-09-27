@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<title>Paint Web</title>
+
+	<meta name="description" content="Un simple Paint en el navegador">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<meta charset="UTF-8">
+
+	<!--link rel="stylesheet"          href="css/minimize.css" rel="stylesheet"-->
+
+	<link rel="stylesheet" href="lib/css/reset.css">
+	<link rel="stylesheet" href="lib/css/font-awesome.min.css">
+	<link rel="stylesheet" href="lib/css/font-material-icons.css">
+	<link rel="stylesheet" href="lib/css/font-roboto-regular.css">
+	<link rel="stylesheet" href="css/estilos.css">
+
+	<link rel="shortcut icon" href="img/pincel.png">
+</head>
+
+<body>
+
+	<canvas width="2000" height="1000" id="canvas"></canvas>
+
+	<div id="barra-herramientas">
+
+		<div id="titulo-y-controles">
+			<div id="titulo">
+				<h1><i aria-hidden="true" class="fa fa-paint-brush"></i> Paint Web</h1>
+			</div>
+			<div id="controles">
+				<div id="controles1">
+					<button id="borrar" title="Borrar el lienzo">
+						<i aria-hidden="true" class="material-icons">delete</i><span>Borrar</span></button>
+					<button id="guardar" title="Guardar el lienzo">
+						<i aria-hidden="true" class="material-icons">save</i><span>Guardar</span></button>
+				</div>
+				<div id="controles2">
+					<button id="deshacer" title="Deshacer los cambios">
+						<i aria-hidden="true" class="material-icons">undo</i><span>Deshacer</span></button>
+					<button id="rehacer" title="Rehacer los cambios">
+						<i aria-hidden="true" class="material-icons">redo</i><span>Rehacer</span></button>
+				</div>
+			</div>
+		</div>
+
+		<div id="herramientas">
+			<div id="herramientas1">
+				<button id="pincel" title="Pintar con pincel" class="herramienta herramienta-seleccionada">
+					<i aria-hidden="true" class="fa fa-paint-brush"></i><span>Pincel</span></button>
+				<button id="linea" title="Pintar líneas" class="herramienta">
+					<i aria-hidden="true" class="material-icons">remove</i><span>Línea</span></button>
+				<button id="rectangulo" title="Pintar un rectángulo" class="herramienta">
+					<i aria-hidden="true" class="material-icons">crop_din</i><span>Rectángulo</span></button>
+				<button id="poligono" title="Pintar un poligono" class="herramienta">
+					<i aria-hidden="true" class="material-icons">details</i><span>Poligono</span></button>
+			</div>
+			<div id="herramientas2">
+				<button id="flecha" title="Pintar una flecha" class="herramienta">
+					<i aria-hidden="true" class="material-icons">arrow_forward</i><span>Flecha</span></button>
+				<button id="multilinea" title="Pintar multilíneas" class="herramienta">
+					<i aria-hidden="true" class="material-icons">show_chart</i><span>Multilínea</span></button>
+				<button id="elipse" title="Pintar una elipse" class="herramienta">
+					<i aria-hidden="true" class="material-icons">panorama_fish_eye</i><span>Elipse</span></button>
+				<input id="numero-lados" title="Decidir el número de lados del poligono" type="number" value="3">
+			</div>
+		</div>
+
+		<div id="colores">
+			<div id="fill-colores" class="caja colores"></div>
+			<div id="selector-color">
+				<div id="barra">
+					<div id="barra-agarre" class="ui-slider-handle"></div>
+				</div>
+				<div id="contenedor" class="selector-color-contenedor">
+					<div id="punto" class="selector-color"></div>
+				</div>
+			</div>
+			<div id="stroke-colores" class="caja colores"></div>
+		</div>
+
+	</div>
+
+	<!--script src="js/minimize.js"></script-->
+
+	<script src="lib/js/modernizr.js"></script>
+	<script src="lib/js/jquery.js"></script>
+	<script src="lib/js/jquery-ui.js"></script>
+	<script src="lib/js/jcanvas.js"></script>
+	<script src="lib/js/fastclick.js"></script>
+
+	<script src="js/colores.js"></script>
+	<script src="js/app.js"></script>
+	<script src="js/herramientas/elipse.js"></script>
+	<script src="js/herramientas/flecha.js"></script>
+	<script src="js/herramientas/linea.js"></script>
+	<script src="js/herramientas/pincel.js"></script>
+	<script src="js/herramientas/poligono.js"></script>
+	<script src="js/herramientas/rectangulo.js"></script>
+
+	<script>
+		if (Modernizr.canvas) {
+			console.log("canvas soportado");
+		} else {
+			console.log("cargando canvas-polyfill");
+			var polyfill = document.createElement('script');
+			polyfill.setAttribute('type', 'text/javascript');
+			polyfill.setAttribute('src', 'lib/js/canvas-polyfill.js');
+			document.getElementsByTagName("body")[0].appendChild(polyfill);
+		}
+		if (window.addEventListener) {
+			window.addEventListener('load', function() {
+				new FastClick(document.body);
+			}, false);
+		}
+	</script>
+
+</body>
+
+</html>

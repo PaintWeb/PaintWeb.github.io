@@ -1,0 +1,123 @@
+h1 {
+  font-size: 2em;
+  font-family: 'Roboto-Regular', sans-serif;
+}
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  font-size: 1em;
+  color: #9C27B0;
+}
+div, h1 {
+  text-align: center;
+}
+button, #numero-lados {
+  width: 2.2em;
+  height: 2.2em;
+  margin: 0.2em;
+  font-size: 1.2em;
+  border: solid 0.1em #9C27B0;
+  border-radius: 0em;
+  -webkit-transition: all 250ms ease-in-out;
+  transition: all 250ms ease-in-out;
+  -webkit-transition-property: padding, border-color, background-color, color, box-shadow;
+  transition-property: padding, border-color, background-color, color, box-shadow;
+  background-color: #9C27B0;
+  color: #fff;
+}
+button:hover, #numero-lados:hover, .herramienta-seleccionada {
+  position: relative;
+  background-color: #fff;
+  color: #9C27B0;
+  border-color: #9C27B0;
+}
+button span {
+  position: absolute;
+  left: -9999em;
+  width: 1px;
+  overflow: hidden;
+}
+#barra {
+  margin: 1.5em  30% 0em  30%;
+  position: relative;
+  height: 0.5em;
+  border-radius: 0.5em;
+  background-color: rgba(156, 39, 176, 0.5);
+}
+#barra-agarre {
+  position: absolute;
+  top: 50%;
+  z-index: 2;
+  width: 1em;
+  height: 1em;
+  margin-top: -0.5em;
+  margin-left: -0.5em;
+  border-radius: 0.5em;
+  background: #9C27B0;
+}
+#barra-herramientas {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+#contenedor {
+  display: inline-block;
+  width: 7em;
+  height: 4em;
+}
+#controles1, #controles2 {
+  display: inline-block;
+}
+#fill-colores, #stroke-colores {
+  border: solid 1px #9C27B0;
+  display: inline-block;
+}
+#numero-lados {
+  width: 2em;
+  height: 2em;
+  text-align: right;
+}
+#punto {
+  border: solid 1px rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  width: 13px;
+  height: 13px;
+}
+.color {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  cursor: pointer;
+}
+.colores {
+  font-size: 0;
+}
+.color-seleccionado {
+  border: solid 1px rgba(0, 0, 0, 0.5);
+  margin: -4px 0px 0px -4px;
+  width: 12px;
+  height: 12px;
+  position: relative;
+  top: 2px;
+  left: 2px;
+}
+@media all and (min-width: 550px) {
+  #titulo-y-controles, #titulo, #controles, #herramientas, #fill-colores, #selector-color, #stroke-colores {
+    display: inline-block;
+    vertical-align: middle;
+  }
+  #controles1, #controles2 {
+    display: block;
+  }
+  #barra {
+      margin: 1.5em  0.5em 0em 0.5em;
+  }
+}
+@media all and (min-width: 1050px) {
+  #colores {
+    display: inline-block;
+  }
+}
